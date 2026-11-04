@@ -71,10 +71,6 @@ a, button {
     z-index: 1;
 }
 
-/* ==========================================================================
-   DESKTOP LAYOUT (DEFAULT STYLING)
-   ========================================================================== */
-
 .navbar {
     position: fixed;
     top: 24px;
@@ -189,9 +185,27 @@ a, button {
     background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; width: fit-content;
 }
+
 .stat-item { display: flex; flex-direction: column; align-items: flex-start; }
-.stat-item h3 { font-size: clamp(1.5rem, 2vw, 1.8rem); font-weight: 800; color: var(--electric-blue); line-height: 1; }
-.stat-item span { font-size: clamp(0.9rem, 1vw, 1rem); font-weight: 700; color: var(--electric-blue); margin-top: -5px; }
+.stat-val { 
+    display: flex; 
+    align-items: baseline; 
+    gap: 2px; 
+    color: #FFFFFF;
+}
+.stat-val h3 { 
+    font-size: clamp(1.5rem, 2vw, 1.8rem); 
+    font-weight: 800; 
+    line-height: 1; 
+    margin: 0;
+    color: inherit; 
+}
+.stat-val span { 
+    font-size: clamp(0.9rem, 1vw, 1.1rem); 
+    font-weight: 700; 
+    margin: 0;
+    color: inherit;
+}
 .stat-item p { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
 .marquee-band-wrapper { position: relative; width: 100%; height: 140px; overflow: hidden; display: flex; align-items: center; justify-content: center; z-index: 10; }
@@ -266,16 +280,12 @@ a, button {
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 
-/* ==========================================================================
-   RESPONSIVE: TABLET & MOBILE NAVIGATION (Max-width 992px)
-   ========================================================================== */
 @media (max-width: 992px) {
     .hero-content { gap: 30px; }
     
-    /* NAVIGASI DIUBAH: Tampilkan menu, geser ke kiri */
     .navbar {
-        justify-content: flex-start; /* Geser semua item ke kiri */
-        gap: 30px; /* Jarak antara logo dan menu */
+        justify-content: flex-start;
+        gap: 30px;
     }
 
     .nav-links { 
@@ -288,32 +298,27 @@ a, button {
     .mobile-menu { display: none !important; }
 }
 
-/* ==========================================================================
-   RESPONSIVE: MOBILE PORTRAIT (Max-width 768px)
-   ========================================================================== */
 @media (max-width: 768px) {
     .container { padding: 0 20px; }
     
-    /* NAVBAR HP */
     .navbar { 
         top: 16px; 
         width: calc(100% - 32px); 
         height: 60px; 
         padding: 0 16px; 
-        gap: 20px; /* Jarak logo dan menu sedikit dirapatkan di HP */
+        gap: 20px;
     }
     
     .logo-img { height: 40px; }
 
     .nav-links {
-        gap: 12px; /* Jarak antar teks menu */
+        gap: 12px;
     }
     
     .nav-link {
-        font-size: 11px; /* Font dikecilkan agar muat di HP */
+        font-size: 11px;
     }
 
-    /* HERO SECTION HP */
     .hero { padding: 120px 0 40px; min-height: auto; }
     .hero-content { display: flex; flex-direction: column; text-align: center; gap: 24px; }
     .hero-text { display: flex; flex-direction: column; align-items: center; }
@@ -328,19 +333,17 @@ a, button {
     
     .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; padding: 16px 10px; gap: 8px; }
     .stat-item { align-items: center; text-align: center; }
-    .stat-item h3 { font-size: 20px; white-space: nowrap; }
+    .stat-val h3 { font-size: 20px; white-space: nowrap; }
+    .stat-val span { font-size: 14px; }
     .stat-item p { font-size: 11px; margin-top: 2px; }
 
-    /* MARQUEE */
     .marquee-band-wrapper { height: 60px; }
     .marquee-band { width: 150vw; left: -25vw; transform: rotate(-2deg); padding: 8px 0; }
     .marquee-group span:not(.dot) { font-size: 12px; margin: 0 12px; }
     .marquee-group .dot { width: 5px; height: 5px; }
 
-    /* GRIDS JADI 1 KOLOM */
     .product-grid, .pricing-grid, .grid-cols-1 { gap: 16px; margin-top: 20px; grid-template-columns: 1fr !important; }
 
-    /* KARTU PRODUK */
     .product-card { padding: 24px 24px 0 24px; }
     
     .product-card-img { 
@@ -358,17 +361,14 @@ a, button {
         object-position: center; 
     }
     
-    /* PRICING */
     .pricing-card { padding: 30px 24px; }
     .pricing-card.featured { transform: none !important; margin-top: 10px; }
     .card-badge { left: 24px; top: -12px; font-size: 11px; padding: 4px 12px; }
     .pricing-card .btn { width: 100%; height: 48px; }
 
-    /* FAQ */
     .faq-item summary { padding: 16px; font-size: 14px; }
     .faq-answer { padding: 0 16px 16px 16px; }
 
-    /* SECTION CARA KERJA NFC (HP) */
     #kartu-nfc main { display: flex; flex-direction: column; gap: 30px; }
     #kartu-nfc section:first-child {
         width: 100%;
@@ -414,7 +414,6 @@ a, button {
     #screenReview .text-\[9px\] { font-size: 9px; }
     #screenReview .fa-star { font-size: 12px; }
 
-    /* STEPS NFC */
     #kartu-nfc .flex.items-center.justify-between { flex-direction: column; align-items: center !important; gap: 16px; text-align: center; margin-bottom: 24px;}
     #kartu-nfc .flex.items-center.space-x-2 { margin-top: 10px; }
     .step-item { padding: 16px !important; gap: 16px !important; }
@@ -422,16 +421,13 @@ a, button {
     .step-item p { font-size: 13px; }
     .step-item .step-number { width: 32px; height: 32px; font-size: 14px; }
 
-    /* CTA & ADMIN */
     .admin-buttons { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto 24px auto; }
     .btn-admin { width: 100%; padding: 14px; justify-content: center; }
     .btn-wa { width: 100%; padding: 16px; font-size: 16px; height: 52px; border-radius: 50px;}
 
-    /* FOOTER */
     footer { padding: 40px 20px 100px 20px; }
     footer .grid { gap: 30px; }
     
-    /* TOMBOL WA MELAYANG */
     .fixed.bottom-6.right-6 {
         width: 55px; height: 55px; font-size: 28px;
         right: 20px; bottom: 20px;
